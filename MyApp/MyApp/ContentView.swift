@@ -18,67 +18,38 @@ struct ContentView: View {
                 .padding(.bottom, 50)
             HStack {
                 VStack {
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .overlay(
-                            Text("1")
-                                .foregroundColor(.white)
-                        )
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .overlay(
-                            Text("4")
-                                .foregroundColor(.white)
-                        )
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .overlay(
-                            Text("7")
-                                .foregroundColor(.white)
-                        )
+                    ForEach(1 ..< 4) { item in
+                        Rectangle()
+                            .fill(Color.gray)
+                            .frame(width: 30, height: 30)
+                            .overlay(
+                                Text("\(item)")
+                                    .foregroundColor(.white)
+                            )
+                    }
                 }
                 VStack {
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .overlay(
-                            Text("2")
-                                .foregroundColor(.white)
-                        )
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .overlay(
-                            Text("5")
-                                .foregroundColor(.white)
-                        )
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .overlay(
-                            Text("8")
-                                .foregroundColor(.white)
-                        )
+                    ForEach(4 ..< 7) { item in
+                        Rectangle()
+                            .fill(Color.gray)
+                            .frame(width: 30, height: 30)
+                            .overlay(
+                                Text("\(item)")
+                                    .foregroundColor(.white)
+                            )
+                    }
                     
                 }
                 VStack {
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .overlay(
-                            Text("3")
-                                .foregroundColor(.white)
-                        )
-                    Rectangle()
-                        .fill(Color.gray)
-                        .frame(width: 30, height: 30)
-                        .overlay(
-                            Text("6")
-                                .foregroundColor(.white)
-                        )
+                    ForEach(7 ..< 9) { item in
+                        Rectangle()
+                            .fill(Color.gray)
+                            .frame(width: 30, height: 30)
+                            .overlay(
+                                Text("\(item)")
+                                    .foregroundColor(.white)
+                            )
+                    }
                     Rectangle()
                         .fill(Color.gray)
                         .frame(width: 30, height: 30)
