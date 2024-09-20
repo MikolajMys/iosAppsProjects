@@ -19,44 +19,57 @@ struct ContentView: View {
             HStack {
                 VStack {
                     ForEach(1 ..< 4) { item in
-                        Rectangle()
-                            .fill(Color.gray)
-                            .frame(width: 30, height: 30)
-                            .overlay(
-                                Text("\(item)")
-                                    .foregroundColor(.white)
-                            )
+                        Button {
+                            
+                        } label: {
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(Color.gray)
+                                .frame(width: 30, height: 30)
+                                .overlay(
+                                    Text("\(item)")
+                                        .foregroundColor(.white)
+                                )
+                        }
                     }
                 }
                 VStack {
                     ForEach(4 ..< 7) { item in
-                        Rectangle()
-                            .fill(Color.gray)
-                            .frame(width: 30, height: 30)
-                            .overlay(
-                                Text("\(item)")
-                                    .foregroundColor(.white)
-                            )
+                        Button {
+                            
+                        } label: {
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(Color.gray)
+                                .frame(width: 30, height: 30)
+                                .overlay(
+                                    Text("\(item)")
+                                        .foregroundColor(.white)
+                                )
+                        }
                     }
                     
                 }
                 VStack {
                     ForEach(7 ..< 9) { item in
-                        Rectangle()
-                            .fill(Color.gray)
-                            .frame(width: 30, height: 30)
-                            .overlay(
-                                Text("\(item)")
-                                    .foregroundColor(.white)
-                            )
+                        Button {
+                            
+                        } label: {
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(Color.gray)
+                                .frame(width: 30, height: 30)
+                                .overlay(
+                                    Text("\(item)")
+                                        .foregroundColor(.white)
+                                )
+                        }
                     }
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 5)
                         .fill(Color.gray)
                         .frame(width: 30, height: 30)
                 }
             }
             .padding(.all, 10)
             .background(Color.black.opacity(0.6))
+            .cornerRadius(10)
         .shadow(color: .black, radius: 10, x: 5, y: 5)
         }
     }
