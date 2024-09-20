@@ -69,7 +69,7 @@ struct ContentView: View {
             }
             .padding(.all, 10)
             .background(Color.black.opacity(0.6))
-            .cornerRadius(10)
+            .cornerRadius(10)//test
         .shadow(color: .black, radius: 10, x: 5, y: 5)
         }
     }
