@@ -13,7 +13,7 @@ struct TextFieldBootcamp: View {
     @State var dataArray: [String] = []
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 TextField("Type something here...", text: $textFieldContent)
                     //.textFieldStyle(RoundedBorderTextFieldStyle())
