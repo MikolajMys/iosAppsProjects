@@ -25,6 +25,7 @@
 		F46C90DE2C8DCC390070008C /* TernaryBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C90DD2C8DCC390070008C /* TernaryBootcamp.swift */; };
 		F46C90E02C8DD5280070008C /* AnimationBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C90DF2C8DD5280070008C /* AnimationBootcamp.swift */; };
 		F46E5BB42C87C17400F7A77E /* ButtonsBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E5BB32C87C17400F7A77E /* ButtonsBootcamp.swift */; };
+		F4748DF52CB12FB200C06258 /* StepperBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4748DF42CB12FB200C06258 /* StepperBootcamp.swift */; };
 		F476E6C92C805CBD0032F92E /* ForEachBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476E6C82C805CBD0032F92E /* ForEachBootcamp.swift */; };
 		F476E6CB2C8067990032F92E /* ScrollViewBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476E6CA2C8067990032F92E /* ScrollViewBootcamp.swift */; };
 		F476F1352C7FD278009BAD42 /* InitalizerBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476F1342C7FD278009BAD42 /* InitalizerBootcamp.swift */; };
@@ -72,6 +73,7 @@
 		F46C90DD2C8DCC390070008C /* TernaryBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TernaryBootcamp.swift; sourceTree = "<group>"; };
 		F46C90DF2C8DD5280070008C /* AnimationBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationBootcamp.swift; sourceTree = "<group>"; };
 		F46E5BB32C87C17400F7A77E /* ButtonsBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsBootcamp.swift; sourceTree = "<group>"; };
+		F4748DF42CB12FB200C06258 /* StepperBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperBootcamp.swift; sourceTree = "<group>"; };
 		F476E6C82C805CBD0032F92E /* ForEachBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForEachBootcamp.swift; sourceTree = "<group>"; };
 		F476E6CA2C8067990032F92E /* ScrollViewBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewBootcamp.swift; sourceTree = "<group>"; };
 		F476F1342C7FD278009BAD42 /* InitalizerBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalizerBootcamp.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				F46C90DF2C8DD5280070008C /* AnimationBootcamp.swift */,
 				F46A18FF2CA8910C00B35A97 /* PickerBootcamp.swift */,
 				F498059C2CACA673002B2F23 /* ColorPickerBootcamp.swift */,
+				F4748DF42CB12FB200C06258 /* StepperBootcamp.swift */,
 				F4775F7C2CA5410C00535361 /* TextFieldBootcamp.swift */,
 				F466045B2CA8088A00C6BFF6 /* ToggleBootcamp.swift */,
 				F46C90DD2C8DCC390070008C /* TernaryBootcamp.swift */,
@@ -284,6 +287,7 @@
 				F4679F1F2C988F1B00B4CDB7 /* TransitionBootcamp.swift in Sources */,
 				F47A4ED62C7AFABC000BC853 /* StacksBootcamp.swift in Sources */,
 				F47CE28D2C9D421B00A13A5A /* PopoverBootcamp.swift in Sources */,
+				F4748DF52CB12FB200C06258 /* StepperBootcamp.swift in Sources */,
 				F49DBFA72CA040C800152940 /* ActionSheetBootcamp.swift in Sources */,
 				F498059D2CACA673002B2F23 /* ColorPickerBootcamp.swift in Sources */,
 				F46C05D12C8B49B5005369A9 /* BindingBootcamp.swift in Sources */,
