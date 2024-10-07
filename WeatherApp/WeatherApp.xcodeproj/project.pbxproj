@@ -11,6 +11,7 @@
 		F49B83C32CB3F2510032595A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B83C22CB3F2510032595A /* ContentView.swift */; };
 		F49B83C52CB3F2540032595A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49B83C42CB3F2540032595A /* Assets.xcassets */; };
 		F49B83C82CB3F2540032595A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49B83C72CB3F2540032595A /* Preview Assets.xcassets */; };
+		F49B83CF2CB3FF0F0032595A /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B83CE2CB3FF0F0032595A /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		F49B83C22CB3F2510032595A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F49B83C42CB3F2540032595A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F49B83C72CB3F2540032595A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F49B83CE2CB3FF0F0032595A /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		F49B83D12CB422FA0032595A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,8 @@
 		F49B83BF2CB3F2510032595A /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F49B83D12CB422FA0032595A /* Info.plist */,
+				F49B83D02CB3FF270032595A /* ModelView */,
 				F49B83C02CB3F2510032595A /* WeatherAppApp.swift */,
 				F49B83C22CB3F2510032595A /* ContentView.swift */,
 				F49B83C42CB3F2540032595A /* Assets.xcassets */,
@@ -65,6 +70,14 @@
 				F49B83C72CB3F2540032595A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F49B83D02CB3FF270032595A /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				F49B83CE2CB3FF0F0032595A /* WeatherData.swift */,
+			);
+			path = ModelView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F49B83C32CB3F2510032595A /* ContentView.swift in Sources */,
+				F49B83CF2CB3FF0F0032595A /* WeatherData.swift in Sources */,
 				F49B83C12CB3F2510032595A /* WeatherAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,8 +281,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 8Z5C8X9JBM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Your location is needed to display current weather information.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is needed to display current weather information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -295,8 +313,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 8Z5C8X9JBM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Your location is needed to display current weather information.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is needed to display current weather information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
