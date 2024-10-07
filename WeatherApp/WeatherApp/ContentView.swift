@@ -80,6 +80,7 @@ struct ContentView: View {
             .background(.ultraThinMaterial)
             .cornerRadius(20)
             .shadow(color: .black, radius: 20, x: 15, y: 15)
+            //test commit
             //.padding()
             .onAppear {
                 locationManager.requestLocation()
