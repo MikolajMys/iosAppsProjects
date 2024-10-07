@@ -79,6 +79,7 @@ struct ContentView: View {
             .frame(width: 300, height: 300)
             .background(.ultraThinMaterial)
             .cornerRadius(20)
+            .shadow(color: .black, radius: 20, x: 15, y: 15)
             //.padding()
             .onAppear {
                 locationManager.requestLocation()
