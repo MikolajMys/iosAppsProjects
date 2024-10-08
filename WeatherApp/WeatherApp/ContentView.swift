@@ -92,7 +92,7 @@ struct ContentView: View {
     }
     
     private func fetchWeatherData(for cityName: String) {
-        let apiKey = "69cff4786143bd829a91825d8fa2561f"
+        let apiKey = "YOUR_API_KEY"
         let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&units=metric&appid=\(apiKey)"
         guard let url = URL(string: urlString) else {return}
         
@@ -114,7 +114,7 @@ struct ContentView: View {
     }
     
     private func fetchWeatherData(for location: CLLocation) {
-        let apiKey = "69cff4786143bd829a91825d8fa2561f"
+        let apiKey = "YOUR_API_KEY"
         let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&units=metric&appid=\(apiKey)"
         
         guard let url = URL(string: urlString) else {return}
