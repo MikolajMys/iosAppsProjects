@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "depositphotos_63107623-stock-photo-people-standing-in-row.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

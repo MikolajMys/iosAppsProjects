@@ -8,18 +8,62 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var image: UIImage = UIImage(named: "test")!
+    @ObservedObject var faceDetector = DetectFaces()
+    
+    let bgColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            Image("zero_faces")
+//        ZStack {
+//            Color(bgColor).opacity(0.5).ignoresSafeArea()
+//            VStack {
+//                ZStack {
+//                    if faceDetector.outputImage != nil {
+//                        Image(uiImage: faceDetector.outputImage!)
+//                            .resizable()
+//                            .scaledToFit()
+//                    } else {
+//                        Image(uiImage: image)
+//                            .resizable()
+//                            .scaledToFit()
+//                    }
+//                }
+//                .cornerRadius(30)
+//                .padding(20)
+//                .shadow(color: .black, radius: 10, x: 5, y: 5)
+//                //.padding(.bottom, 50)
+//                .background(Color.black.opacity(0.5))
+//                .cornerRadius(30)
+//
+//                Button {
+//                    faceDetector.inputImage = image
+//                    faceDetector.detectFaces(in: image)
+//                } label: {
+//                    Text("Process Image")
+//                        .font(.headline)
+//                        .foregroundColor(.white)
+//                        .padding()
+//                        .background(Color.black.opacity(0.5))
+//                        .cornerRadius(20)
+//                }
+//            }
+//        }
+        if faceDetector.outputImage != nil {
+            Image(uiImage: faceDetector.outputImage!)
                 .resizable()
                 .scaledToFit()
-                //.frame(width: 100, height: 200)
+        } else {
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFit()
         }
-        .padding()
+        Button {
+            faceDetector.inputImage = image
+            faceDetector.detectFaces(in: image)
+        } label: {
+            Text("Process Image")
+        }
     }
 }
 
