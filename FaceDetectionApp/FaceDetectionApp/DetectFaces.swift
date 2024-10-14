@@ -19,6 +19,10 @@ class DetectFaces: ObservableObject {
         }
         let request = VNDetectFaceRectanglesRequest(completionHandler: self.handleFacesData)
         
+        #if targetEnvironment(simulator)
+        request.usesCPUOnly = true
+        #endif
+        
         let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
         do {
             try handler.perform([request])
@@ -27,17 +31,59 @@ class DetectFaces: ObservableObject {
         }
     }
     
-    func handleFacesData(request: VNRequest, error: Error) {
+    func handleFacesData(request: VNRequest, error: Error?) {
         DispatchQueue.main.async {
             guard let result = request.results as? [VNFaceObservation] else {
                 return
             }
             self.detectedFaces = result
-            for faces in self.detectedFaces {
-                
+            for face in self.detectedFaces {
+                self.addRectToFace(result: face)
             }
             
             self.outputImage = self.inputImage
         }
+    }
+    
+    func addRectToFace(result: VNFaceObservation) {
+        let imageSize = CGSize(width: inputImage.size.width, height: inputImage.size.height)
+        
+        let boundingBox = result.boundingBox
+        let scaleBox = CGRect(
+            x: boundingBox.origin.x * imageSize.width,
+            y: (1 - boundingBox.origin.y - boundingBox.size.height) * imageSize.height,
+            width: boundingBox.size.width * imageSize.width,
+            height: boundingBox.size.height * imageSize.height
+        )
+        
+        // Find the center of the face bounding box
+        let faceCenter = CGPoint(
+            x: scaleBox.midX,
+            y: scaleBox.midY
+        )
+        
+        let normalizedRect = VNNormalizedRectForImageRect(scaleBox, Int(imageSize.width), Int(imageSize.height))
+        
+        UIGraphicsBeginImageContext(inputImage.size)
+        inputImage.draw(at: .zero)
+        let context = UIGraphicsGetCurrentContext()!
+        context.setStrokeColor(UIColor.green.cgColor)
+        context.setLineWidth(5.0)
+        context.stroke(CGRect(x: normalizedRect.origin.x * imageSize.width, y: normalizedRect.origin.y * imageSize.height, width: normalizedRect.size.width * imageSize.width, height: normalizedRect.size.height * imageSize.height))
+        // Set color for the dot
+        context.setFillColor(UIColor.red.cgColor)
+        
+        // Draw dot in the center of the face
+        let dotRadius: CGFloat = 10.0
+        let dotRect = CGRect(
+            x: faceCenter.x - dotRadius / 2,
+            y: faceCenter.y - dotRadius / 2,
+            width: dotRadius,
+            height: dotRadius
+        )
+        context.fillEllipse(in: dotRect)
+        
+        inputImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
     }
 }
