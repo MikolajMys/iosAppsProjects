@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var image: UIImage = UIImage(named: "two_faces")!
+    @State private var image: UIImage = UIImage(named: "photo6")!
 //    @State private var images: [UIImage] = [
 //        UIImage(named: "photo0")!,
 //        UIImage(named: "photo1")!,
