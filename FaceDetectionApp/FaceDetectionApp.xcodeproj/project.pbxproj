@@ -18,7 +18,7 @@
 		F4A8968B2CBC89530087C3EC /* FaceDetectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceDetectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A8968E2CBC89530087C3EC /* FaceDetectionAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionAppApp.swift; sourceTree = "<group>"; };
 		F4A896902CBC89530087C3EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F4A896922CBC89540087C3EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F4A896922CBC89540087C3EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = FaceDetectionApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F4A896952CBC89540087C3EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4A8969C2CBC8D3A0087C3EC /* DetectFaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectFaces.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,6 +268,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FaceDetectionApp/Preview Content\"";
@@ -298,6 +299,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FaceDetectionApp/Preview Content\"";
