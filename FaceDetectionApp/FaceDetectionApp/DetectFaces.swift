@@ -11,6 +11,7 @@ import Vision
 class DetectFaces: ObservableObject {
     var inputImage: UIImage = UIImage()
     @Published var outputImage: UIImage?
+    @Published var detectedFacesCount: Int = 0
     private var detectedFaces: [VNFaceObservation] = [VNFaceObservation()]
     
     func detectFaces(in inputImage: UIImage) {
@@ -37,6 +38,7 @@ class DetectFaces: ObservableObject {
                 return
             }
             self.detectedFaces = result
+            self.detectedFacesCount = result.count
             for face in self.detectedFaces {
                 self.addRectToFace(result: face)
             }
