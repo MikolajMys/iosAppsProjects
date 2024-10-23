@@ -22,6 +22,8 @@ class DetectFaces: ObservableObject {
         
         #if targetEnvironment(simulator)
         request.usesCPUOnly = true
+        #else
+        request.usesCPUOnly = false
         #endif
         
         let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
@@ -58,7 +60,6 @@ class DetectFaces: ObservableObject {
             height: boundingBox.size.height * imageSize.height
         )
         
-        // Find the center of the face bounding box
         let faceCenter = CGPoint(
             x: scaleBox.midX,
             y: scaleBox.midY
@@ -72,10 +73,10 @@ class DetectFaces: ObservableObject {
         context.setStrokeColor(UIColor.green.cgColor)
         context.setLineWidth(5.0)
         context.stroke(CGRect(x: normalizedRect.origin.x * imageSize.width, y: normalizedRect.origin.y * imageSize.height, width: normalizedRect.size.width * imageSize.width, height: normalizedRect.size.height * imageSize.height))
-        // Set color for the dot
+
         context.setFillColor(UIColor.red.cgColor)
         
-        // Draw dot in the center of the face
+
         let dotRadius: CGFloat = 10.0
         let dotRect = CGRect(
             x: faceCenter.x - dotRadius / 2,
