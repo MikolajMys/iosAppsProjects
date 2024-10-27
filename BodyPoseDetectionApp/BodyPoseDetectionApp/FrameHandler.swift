@@ -7,10 +7,11 @@
 
 import AVFoundation
 import CoreImage
+import SwiftUI
 
 class FrameHandler: NSObject, ObservableObject {
     @Published var frame: CGImage?
-    private let captureSession = AVCaptureSession()
+    let captureSession = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "sessionQueue")
     private let context = CIContext()
     
@@ -43,7 +44,7 @@ class FrameHandler: NSObject, ObservableObject {
     }
 
     func setUpCaptureSession() async {
-        guard await isAuthorized else { return }
+        // guard await isAuthorized else { return }
         
         captureSession.sessionPreset = .medium
         
@@ -79,3 +80,30 @@ extension FrameHandler: AVCaptureVideoDataOutputSampleBufferDelegate {
         return cgImage
     }
 }
+
+
+//struct PreviewLayerView: UIViewRepresentable {
+//    var session: AVCaptureSession
+//
+//    func makeUIView(context: Context) -> UIView {
+//        let view = UIView()
+//        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+//        previewLayer.videoGravity = .resizeAspectFill // Ustawienie właściwości .resizeAspectFill
+//        previewLayer.frame = view.bounds
+//        view.layer.addSublayer(previewLayer)
+//        
+//        // Ensure layer resizes with view
+//        DispatchQueue.main.async {
+//            previewLayer.frame = view.bounds
+//        }
+//        
+//        return view
+//    }
+//
+//    func updateUIView(_ uiView: UIView, context: Context) {
+//        if let previewLayer = uiView.layer.sublayers?.compactMap({ $0 as? AVCaptureVideoPreviewLayer }).first {
+//            previewLayer.frame = uiView.bounds
+//        }
+//    }
+//}
+

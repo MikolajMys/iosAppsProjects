@@ -11,13 +11,13 @@ struct ContentView: View {
     @StateObject private var model = FrameHandler()
     
     var body: some View {
+        // Preview layer with aspect fill
+//            PreviewLayerView(session: model.captureSession)
+//                .ignoresSafeArea()
+        
+        // FrameView to overlay additional processing
         FrameView(image: model.frame)
-            //.ignoresSafeArea()
+            .ignoresSafeArea()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
