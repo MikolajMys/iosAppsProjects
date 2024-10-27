@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F46935042CCE4A18004DCB22 /* PoseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46935032CCE4A18004DCB22 /* PoseDetector.swift */; };
+		F46935062CCE4A9E004DCB22 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46935052CCE4A9E004DCB22 /* SkeletonView.swift */; };
 		F48904822CCCDDA000ABA181 /* BodyPoseDetectionAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48904812CCCDDA000ABA181 /* BodyPoseDetectionAppApp.swift */; };
 		F48904842CCCDDA000ABA181 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48904832CCCDDA000ABA181 /* ContentView.swift */; };
 		F48904862CCCDDA200ABA181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F48904852CCCDDA200ABA181 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F46935032CCE4A18004DCB22 /* PoseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetector.swift; sourceTree = "<group>"; };
+		F46935052CCE4A9E004DCB22 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		F489047E2CCCDDA000ABA181 /* BodyPoseDetectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyPoseDetectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48904812CCCDDA000ABA181 /* BodyPoseDetectionAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPoseDetectionAppApp.swift; sourceTree = "<group>"; };
 		F48904832CCCDDA000ABA181 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 				F48904832CCCDDA000ABA181 /* ContentView.swift */,
 				F48904902CCD052800ABA181 /* FrameView.swift */,
 				F48904922CCD068F00ABA181 /* FrameHandler.swift */,
+				F46935052CCE4A9E004DCB22 /* SkeletonView.swift */,
+				F46935032CCE4A18004DCB22 /* PoseDetector.swift */,
 				F48904852CCCDDA200ABA181 /* Assets.xcassets */,
 				F48904872CCCDDA200ABA181 /* Preview Content */,
 			);
@@ -148,7 +154,9 @@
 				F48904912CCD052800ABA181 /* FrameView.swift in Sources */,
 				F48904842CCCDDA000ABA181 /* ContentView.swift in Sources */,
 				F48904932CCD068F00ABA181 /* FrameHandler.swift in Sources */,
+				F46935042CCE4A18004DCB22 /* PoseDetector.swift in Sources */,
 				F48904822CCCDDA000ABA181 /* BodyPoseDetectionAppApp.swift in Sources */,
+				F46935062CCE4A9E004DCB22 /* SkeletonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

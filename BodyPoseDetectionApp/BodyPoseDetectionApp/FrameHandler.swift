@@ -11,6 +11,7 @@ import SwiftUI
 
 class FrameHandler: NSObject, ObservableObject {
     @Published var frame: CGImage?
+    @Published var poseDetector = PoseDetector()
     let captureSession = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "sessionQueue")
     private let context = CIContext()
@@ -69,6 +70,7 @@ extension FrameHandler: AVCaptureVideoDataOutputSampleBufferDelegate {
         //All UI updates on main queue
         DispatchQueue.main.async { [unowned self] in
             self.frame = cgImage
+            self.poseDetector.processImage(cgImage)
         }
     }
     
