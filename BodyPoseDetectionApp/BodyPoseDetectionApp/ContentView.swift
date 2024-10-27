@@ -11,13 +11,12 @@ struct ContentView: View {
     @StateObject private var model = FrameHandler()
     
     var body: some View {
-        // Preview layer with aspect fill
-//            PreviewLayerView(session: model.captureSession)
-//                .ignoresSafeArea()
-        
-        // FrameView to overlay additional processing
-        FrameView(image: model.frame)
-            .ignoresSafeArea()
+        ZStack {
+            FrameView(image: model.frame)
+                .ignoresSafeArea()
+            
+            SkeletonView(landmarks: model.poseDetector.bodyLandmarks) // Rysowanie punktów
+        }
     }
 }
 
