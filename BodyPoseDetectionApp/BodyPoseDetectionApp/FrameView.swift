@@ -15,8 +15,9 @@ struct FrameView: View {
         if let image = image {
             Image(image, scale: 1.0, orientation: .up, label: label)
                 .resizable()
-                .aspectRatio(contentMode: .fill)  // Dopasowuje proporcje
-                .edgesIgnoringSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                //.edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
         } else {
             //Color.black
             ProgressView()
