@@ -11,6 +11,8 @@
 		F48904842CCCDDA000ABA181 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48904832CCCDDA000ABA181 /* ContentView.swift */; };
 		F48904862CCCDDA200ABA181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F48904852CCCDDA200ABA181 /* Assets.xcassets */; };
 		F48904892CCCDDA200ABA181 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F48904882CCCDDA200ABA181 /* Preview Assets.xcassets */; };
+		F48904912CCD052800ABA181 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48904902CCD052800ABA181 /* FrameView.swift */; };
+		F48904932CCD068F00ABA181 /* FrameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48904922CCD068F00ABA181 /* FrameHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		F48904852CCCDDA200ABA181 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F48904882CCCDDA200ABA181 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F489048F2CCCE18200ABA181 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F48904902CCD052800ABA181 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		F48904922CCD068F00ABA181 /* FrameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				F489048F2CCCE18200ABA181 /* Info.plist */,
 				F48904812CCCDDA000ABA181 /* BodyPoseDetectionAppApp.swift */,
 				F48904832CCCDDA000ABA181 /* ContentView.swift */,
+				F48904902CCD052800ABA181 /* FrameView.swift */,
+				F48904922CCD068F00ABA181 /* FrameHandler.swift */,
 				F48904852CCCDDA200ABA181 /* Assets.xcassets */,
 				F48904872CCCDDA200ABA181 /* Preview Content */,
 			);
@@ -139,7 +145,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48904912CCD052800ABA181 /* FrameView.swift in Sources */,
 				F48904842CCCDDA000ABA181 /* ContentView.swift in Sources */,
+				F48904932CCD068F00ABA181 /* FrameHandler.swift in Sources */,
 				F48904822CCCDDA000ABA181 /* BodyPoseDetectionAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +274,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BodyPoseDetectionApp/Preview Content\"";
@@ -273,7 +282,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BodyPoseDetectionApp/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "App requires access to the camera for body movement detection.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App requires access to the camera for body pose detection.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -298,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BodyPoseDetectionApp/Preview Content\"";
@@ -305,7 +315,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BodyPoseDetectionApp/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "App requires access to the camera for body movement detection.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App requires access to the camera for body pose detection.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
