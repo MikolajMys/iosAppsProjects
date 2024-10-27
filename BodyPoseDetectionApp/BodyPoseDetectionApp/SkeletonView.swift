@@ -38,7 +38,8 @@ struct SkeletonView: View {
             }
 
             // Draw lines connecting the specified pairs of joints
-            ForEach(jointPairs, id: \.0) { pair in
+            ForEach(jointPairs.indices, id: \.self) { index in
+                let pair = jointPairs[index]
                 if let startPoint = landmarks[pair.0], let endPoint = landmarks[pair.1] {
                     Path { path in
                         path.move(to: CGPoint(

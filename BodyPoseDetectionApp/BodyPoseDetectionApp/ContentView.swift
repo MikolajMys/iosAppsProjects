@@ -13,9 +13,10 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             FrameView(image: model.frame)
-                .ignoresSafeArea()
-            
             SkeletonView(landmarks: model.poseDetector.bodyLandmarks) // Rysowanie punktów
+        }
+        .onAppear {
+            model.startDetection()
         }
     }
 }
