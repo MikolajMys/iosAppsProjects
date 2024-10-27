@@ -15,6 +15,7 @@ class FrameHandler: NSObject, ObservableObject {
     let captureSession = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "sessionQueue")
     private let context = CIContext()
+    private var frameCounter = 0
     
     var isAuthorized: Bool {
         get async {
@@ -33,8 +34,8 @@ class FrameHandler: NSObject, ObservableObject {
         }
     }
     
-    override init() {
-        super.init()
+    func startDetection() {
+        //super.init()
         sessionQueue.async { [unowned self] in
             Task {
                 guard await isAuthorized else { return }
@@ -67,10 +68,14 @@ extension FrameHandler: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let cgImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
         
+        frameCounter += 1
+        if frameCounter % 3 == 0 { return }
+        
         //All UI updates on main queue
         DispatchQueue.main.async { [unowned self] in
-            self.frame = cgImage
             self.poseDetector.processImage(cgImage)
+            self.frame = cgImage
+            
         }
     }
     
