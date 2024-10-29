@@ -24,7 +24,7 @@ struct ContentView: View {
                 Button(action: {
                     isDetectionActive.toggle()
                 }) {
-                    Text(isDetectionActive ? "Start detecting" : "Stop detecting")
+                    Text(isDetectionActive ? "Stop detecting" : "Start detecting")
                         .font(.title2)
                         .padding()
                         .background(Color.blue)

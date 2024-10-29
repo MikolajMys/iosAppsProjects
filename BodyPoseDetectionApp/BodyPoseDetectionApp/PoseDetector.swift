@@ -34,10 +34,14 @@ class PoseDetector: ObservableObject {
 
     private func updateLandmarks(for observation: VNHumanBodyPoseObservation) {
         do {
+            //clearLandmarks()
             let recognizedPoints = try observation.recognizedPoints(.all)
             self.bodyLandmarks = recognizedPoints.mapValues { CGPoint(x: $0.x, y: 1 - $0.y) }
         } catch {
             print("Error in converting points: \(error)")
         }
     }
+//    func clearLandmarks() {
+//        self.bodyLandmarks.removeAll()
+//    }
 }

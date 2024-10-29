@@ -32,7 +32,7 @@ struct SkeletonView: View {
                 if let point = landmarks[key] {
                     Circle()
                         .fill(Color.red)
-                        .frame(width: 10, height: 10)
+                        .frame(width: 8, height: 8)
                         .position(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
                 }
             }

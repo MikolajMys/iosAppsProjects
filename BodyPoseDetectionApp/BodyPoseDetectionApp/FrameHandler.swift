@@ -69,6 +69,7 @@ class FrameHandler: NSObject, ObservableObject {
     func stopDetection() {
         isDetectionRunning = false
         captureSession.stopRunning()
+        //poseDetector.clearLandmarks()
     }
 
     func setUpCaptureSession() async {
