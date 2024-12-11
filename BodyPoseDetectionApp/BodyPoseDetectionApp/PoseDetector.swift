@@ -13,7 +13,15 @@ class PoseDetector: ObservableObject {
     private var bodyPoseRequest = VNDetectHumanBodyPoseRequest()
     
     // Zmieniamy typ kolejki na .userInitiated dla większej responsywności
-    private let visionQueue = DispatchQueue(label: "visionQueue", qos: .userInitiated)
+    private let visionQueue: DispatchQueue = {
+        #if targetEnvironment(simulator)
+        // Use a lower QoS if running on a simulator, as it will run on the CPU
+        return DispatchQueue(label: "visionQueue", qos: .userInitiated)
+        #else
+        // Use a higher QoS if running on a real device, as it will run on the GPU
+        return DispatchQueue(label: "visionQueue", qos: .userInteractive)
+        #endif
+    }()
     
     func processImage(_ image: CGImage) {
         let handler = VNImageRequestHandler(cgImage: image, orientation: .up, options: [:])

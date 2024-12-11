@@ -27,7 +27,7 @@ struct ContentView: View {
                     Text(isDetectionActive ? "Stop detecting" : "Start detecting")
                         .font(.title2)
                         .padding()
-                        .background(Color.blue)
+                        .background(isDetectionActive ? Color.red : Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                         .padding(.bottom, 20)
