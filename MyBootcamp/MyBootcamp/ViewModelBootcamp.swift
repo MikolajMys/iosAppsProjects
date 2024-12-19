@@ -103,6 +103,8 @@ struct RandomScreen: View {
 //                    .fontWeight(.semibold)
 //            }
             
+            //test
+            
             VStack {
                 ForEach(fruitViewModel.fruitArray) { fruit in
                     Text(fruit.name)
