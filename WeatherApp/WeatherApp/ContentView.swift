@@ -14,18 +14,18 @@ struct ContentView: View {
     @State private var cityName: String = ""
     @State private var citySearching: Bool = false
     
+    
     let detailColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
     
     var body: some View {
         ZStack {
-            Color(detailColor)
+            Color("DetailColor")
                 .ignoresSafeArea()
             VStack {
                 if let weatherData = weatherData {
                     HStack{
-                        TextField("", text: $cityName, prompt: Text("Enter city name...").foregroundColor(.black))
+                        TextField("", text: $cityName, prompt: Text("Enter city name...").foregroundColor(Color("FontColor")))
                             .frame(width: 150)
-                            .tint(.black)
                         Button {
                             if !cityName.isEmpty {
                                 citySearching = true
@@ -33,7 +33,6 @@ struct ContentView: View {
                             }
                         } label: {
                             Image(systemName: "magnifyingglass")
-                                .tint(.black)
                         }
                         Spacer()
                         Button {
@@ -41,12 +40,13 @@ struct ContentView: View {
                                 locationManager.requestLocation()
                             }
                         } label: {
-                            Image(systemName: "gobackward")
-                                .tint(.black)
+                            Image(systemName: "location.circle")
+                                
                         }
                     }
-                    .padding(20)
-                    .background(Color(detailColor).opacity(0.5))
+                    .padding(.horizontal, 20)
+                    .frame(width: 300, height: 50)
+                    .background(Color("DetailColor").opacity(0.5))
                     Spacer()
                     Text(String(format: "%.1f°C", weatherData.main.temp))
                         .font(.custom("", size: 70))
@@ -54,17 +54,17 @@ struct ContentView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             Image(systemName: "location.circle.fill")
-                                .tint(.black)
+                                
                             Text("\(weatherData.sys.country)")
                         }
                         HStack {
                             Image(systemName: "mappin.circle.fill")
-                                .tint(.black)
+                                
                             Text("\(weatherData.name)")
                         }
                         HStack {
                             Image(systemName: "pencil.circle.fill")
-                                .tint(.black)
+                                
                             Text("\(weatherData.weather.first?.description ?? "")")
                         }
                     }
@@ -77,7 +77,8 @@ struct ContentView: View {
                 }
             }
             .frame(width: 300, height: 300)
-            .background(.ultraThinMaterial)
+            .background(Color("FormColor"))
+            .foregroundColor(Color("FontColor"))
             .cornerRadius(20)
             .shadow(color: .black, radius: 20, x: 15, y: 15)
             //.padding()
@@ -92,7 +93,7 @@ struct ContentView: View {
     }
     
     private func fetchWeatherData(for cityName: String) {
-        let apiKey = "YOUR_API_KEY"
+        let apiKey = "3e0e86760eada5a4076df6ba50dff736"
         let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&units=metric&appid=\(apiKey)"
         guard let url = URL(string: urlString) else {return}
         
@@ -114,7 +115,7 @@ struct ContentView: View {
     }
     
     private func fetchWeatherData(for location: CLLocation) {
-        let apiKey = "YOUR_API_KEY"
+        let apiKey = "3e0e86760eada5a4076df6ba50dff736"
         let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&units=metric&appid=\(apiKey)"
         
         guard let url = URL(string: urlString) else {return}
