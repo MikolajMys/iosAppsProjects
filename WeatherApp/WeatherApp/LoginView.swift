@@ -46,7 +46,7 @@ struct LoginView: View {
 //                                    Image(systemName: "chevron.right")
 //                                }
 //                                .tint(.white)
-//                                
+//
 //                            }.padding(.bottom, 10)
 
                             
