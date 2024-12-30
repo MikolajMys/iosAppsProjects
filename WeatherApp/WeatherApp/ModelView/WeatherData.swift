@@ -13,6 +13,7 @@ struct WeatherData: Codable {
     let sys: Sys
     let main: Main
     let weather: [Weather]
+    let coord: Coord
 }
 struct Sys: Codable {
     let country: String
@@ -24,6 +25,11 @@ struct Main: Codable {
 
 struct Weather: Codable {
     let description: String
+}
+
+struct Coord: Codable {
+    let lon: Double
+    let lat: Double
 }
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {

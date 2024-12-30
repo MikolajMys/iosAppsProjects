@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    @AppStorage("username") private var storedUsername: String = ""
     @State private var username: String = ""
     @State private var password: String = ""
 
@@ -53,7 +55,10 @@ struct LoginView: View {
                             Spacer()
                             
                             Button {
-                                
+                                if !username.isEmpty {
+                                    isLoggedIn = true
+                                    storedUsername = username
+                                }
                             } label: {
                                 HStack {
                                     Text("SIGN IN")
