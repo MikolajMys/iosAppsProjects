@@ -9,14 +9,13 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
+    @EnvironmentObject private var alertManager: AlertManager
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     @AppStorage("username") private var storedUsername: String = ""
     @StateObject private var locationManager = LocationManager()
     @State private var weatherData: WeatherData?
     @State private var cityName: String = ""
-    @State private var alertMessage: String = ""
     @State private var citySearching: Bool = false
-    @State private var showAlert = false
     @State private var showMapView = false
 
     var body: some View {
@@ -42,8 +41,10 @@ struct ContentView: View {
                                 if cityName.isEmpty {
                                     locationManager.requestLocation()
                                 } else {
-                                    alertMessage = "Unable to get location while using city name search!"
-                                    showAlert = true
+                                    alertManager.showAlert(
+                                        title: "Unable to Proceed",
+                                        message: "Unable to get location while using city name search!"
+                                    )
                                 }
                             } label: {
                                 Image(systemName: "location.circle")
@@ -53,8 +54,7 @@ struct ContentView: View {
                             Button {
                                 isLoggedIn = false
                             } label: {
-                                Image(systemName: "figure.walk.arrival")
-                                    .environment(\.layoutDirection, .rightToLeft)
+                                Image(systemName: "multiply.circle")
                                     .foregroundColor(.red)
                             }
 
@@ -62,10 +62,10 @@ struct ContentView: View {
                         .padding(.horizontal, 20)
                         .frame(width: 300, height: 50)
                         .background(Color("DetailColor").opacity(0.5))
-                        .alert("Unable to Proceed", isPresented: $showAlert) {
+                        .alert(alertManager.title, isPresented: $alertManager.isPresented) {
                             Button("OK", role: .cancel) {}
                         } message: {
-                            Text(alertMessage)
+                            Text(alertManager.message)
                         }
                         Spacer()
                         Text(String(format: "%.1f°C", weatherData.main.temp))

@@ -11,13 +11,16 @@ import SwiftUI
 struct WeatherAppApp: App {
     
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+    @StateObject private var alertManager = AlertManager()
     
     var body: some Scene {
         WindowGroup {
             if isLoggedIn {
                 ContentView()
+                    .environmentObject(alertManager)
             } else {
                 LoginView()
+                    .environmentObject(alertManager)
             }
         }
     }

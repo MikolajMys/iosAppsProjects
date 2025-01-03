@@ -1,3 +1,10 @@
+//
+//  LoginView.swift
+//  WeatherApp
+//
+//  Created by Mikołaj Myśliński on 24/12/2024.
+//
+
 import SwiftUI
 import MapKit
 
@@ -32,12 +39,16 @@ struct MapView: View {
                         }
                     } label: {
                         VStack {
-                            Image(systemName: "cloud.sun.rain.circle")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(.blue)
-                                .background(Color.white)
-                                .cornerRadius(20)
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(.white)
+                                    .frame(width: 30, height: 30)
+                                Image(systemName: "cloud.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 25)
+                                    .foregroundColor(.blue)
+                            }
                             Text("Tap me!")
                                 .font(.caption)
                                 .foregroundColor(Color("FontColor"))
@@ -57,7 +68,7 @@ struct MapView: View {
                             .frame(width: 100)
                             .foregroundColor(Color("DetailColor"))
                         HStack {
-                            Image(systemName: "thermometer.medium")
+                            //Image(systemName: "thermometer.variable.and.figure")
                             Text(selectedTemperature)
                         }
                         .foregroundColor(Color("FontColor"))
