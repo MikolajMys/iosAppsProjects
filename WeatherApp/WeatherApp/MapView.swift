@@ -78,6 +78,7 @@ struct MapView: View {
                     Spacer()
                 }
             }
+            ConnectionStatusView()
         }
         .onTapGesture {
             showingAnnotation = false
