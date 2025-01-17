@@ -9,6 +9,8 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
+    
+    @EnvironmentObject private var networkMonitor: NetworkMonitor
     @EnvironmentObject private var alertManager: AlertManager
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     @AppStorage("username") private var storedUsername: String = ""
@@ -24,7 +26,10 @@ struct ContentView: View {
                 Color("DetailColor")
                     .ignoresSafeArea()
                 VStack {
-                    if let weatherData = weatherData {
+                    if !networkMonitor.isConnected {
+                        ProgressView()
+                    } else if let weatherData = weatherData {
+                        // Wyświetlanie pogody
                         HStack {
                             TextField("", text: $cityName, prompt: Text("Enter city name...").foregroundColor(Color("FontColor")))
                                 .frame(width: 150)
@@ -57,7 +62,6 @@ struct ContentView: View {
                                 Image(systemName: "multiply.circle")
                                     .foregroundColor(.red)
                             }
-
                         }
                         .padding(.horizontal, 20)
                         .frame(width: 300, height: 50)
@@ -117,13 +121,23 @@ struct ContentView: View {
                     guard let location = location else { return }
                     fetchWeatherData(for: location)
                 }
+                .onChange(of: networkMonitor.isConnected) { isConnected in
+                    if isConnected {
+                        if citySearching, !cityName.isEmpty {
+                            fetchWeatherData(for: cityName)
+                        } else if let location = locationManager.location {
+                            fetchWeatherData(for: location)
+                        }
+                    }
+                }
+                ConnectionStatusView()
             }
             .navigationTitle("Welcome, \(storedUsername)")
         }
     }
 
     private func fetchWeatherData(for cityName: String) {
-        let apiKey = "YOUR_API_KEY"
+        let apiKey = "d44c80d5e6895f8a829ce9367d7d2325"
         let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&units=metric&appid=\(apiKey)"
         guard let url = URL(string: urlString) else { return }
 
@@ -145,7 +159,7 @@ struct ContentView: View {
     }
 
     private func fetchWeatherData(for location: CLLocation) {
-        let apiKey = "YOUR_API_KEY"
+        let apiKey = "d44c80d5e6895f8a829ce9367d7d2325"
         let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(location.coordinate.latitude)&lon=\(location.coordinate.longitude)&units=metric&appid=\(apiKey)"
 
         guard let url = URL(string: urlString) else { return }
@@ -164,5 +178,13 @@ struct ContentView: View {
                 print(error.localizedDescription)
             }
         }.resume()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .environmentObject(NetworkMonitor())
+            .environmentObject(AlertManager())
     }
 }

@@ -12,15 +12,18 @@ struct WeatherAppApp: App {
     
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     @StateObject private var alertManager = AlertManager()
+    @StateObject private var networkMonitor = NetworkMonitor()
     
     var body: some Scene {
         WindowGroup {
             if isLoggedIn {
                 ContentView()
                     .environmentObject(alertManager)
+                    .environmentObject(networkMonitor)
             } else {
                 LoginView()
                     .environmentObject(alertManager)
+                    .environmentObject(networkMonitor)
             }
         }
     }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @EnvironmentObject private var networkMonitor: NetworkMonitor
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     @AppStorage("username") private var storedUsername: String = ""
     @State private var username: String = ""
@@ -78,6 +79,7 @@ struct LoginView: View {
                 .background(Color("FormColor"))
                 .cornerRadius(20)
                 .shadow(color: .black, radius: 20, x: 15, y: 15)
+                ConnectionStatusView()
             }
         }
     }
@@ -86,5 +88,6 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+            .environmentObject(NetworkMonitor())
     }
 }
