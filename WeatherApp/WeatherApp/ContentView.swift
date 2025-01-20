@@ -4,7 +4,7 @@
 //
 //  Created by Mikołaj Myśliński on 07/10/2024.
 //
-
+//test commit
 import SwiftUI
 import CoreLocation
 
