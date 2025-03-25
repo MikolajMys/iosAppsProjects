@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		F459DB4C2D9358AB00242779 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F459DB332D9358A900242779 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F459DB3A2D9358A900242779;
+			remoteInfo = EmotionDetectionApp;
+		};
+		F459DB562D9358AB00242779 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F459DB332D9358A900242779 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F459DB3A2D9358A900242779;
+			remoteInfo = EmotionDetectionApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F459DB3B2D9358AA00242779 /* EmotionDetectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionDetectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F459DB4B2D9358AB00242779 /* EmotionDetectionAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionDetectionAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F459DB552D9358AB00242779 /* EmotionDetectionAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionDetectionAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F459DB3D2D9358AA00242779 /* EmotionDetectionApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EmotionDetectionApp;
+			sourceTree = "<group>";
+		};
+		F459DB4E2D9358AB00242779 /* EmotionDetectionAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EmotionDetectionAppTests;
+			sourceTree = "<group>";
+		};
+		F459DB582D9358AB00242779 /* EmotionDetectionAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EmotionDetectionAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F459DB382D9358A900242779 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F459DB482D9358AB00242779 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F459DB522D9358AB00242779 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F459DB322D9358A900242779 = {
+			isa = PBXGroup;
+			children = (
+				F459DB3D2D9358AA00242779 /* EmotionDetectionApp */,
+				F459DB4E2D9358AB00242779 /* EmotionDetectionAppTests */,
+				F459DB582D9358AB00242779 /* EmotionDetectionAppUITests */,
+				F459DB3C2D9358AA00242779 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F459DB3C2D9358AA00242779 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F459DB3B2D9358AA00242779 /* EmotionDetectionApp.app */,
+				F459DB4B2D9358AB00242779 /* EmotionDetectionAppTests.xctest */,
+				F459DB552D9358AB00242779 /* EmotionDetectionAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F459DB3A2D9358A900242779 /* EmotionDetectionApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F459DB5F2D9358AB00242779 /* Build configuration list for PBXNativeTarget "EmotionDetectionApp" */;
+			buildPhases = (
+				F459DB372D9358A900242779 /* Sources */,
+				F459DB382D9358A900242779 /* Frameworks */,
+				F459DB392D9358A900242779 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F459DB3D2D9358AA00242779 /* EmotionDetectionApp */,
+			);
+			name = EmotionDetectionApp;
+			packageProductDependencies = (
+			);
+			productName = EmotionDetectionApp;
+			productReference = F459DB3B2D9358AA00242779 /* EmotionDetectionApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F459DB4A2D9358AB00242779 /* EmotionDetectionAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F459DB622D9358AB00242779 /* Build configuration list for PBXNativeTarget "EmotionDetectionAppTests" */;
+			buildPhases = (
+				F459DB472D9358AB00242779 /* Sources */,
+				F459DB482D9358AB00242779 /* Frameworks */,
+				F459DB492D9358AB00242779 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F459DB4D2D9358AB00242779 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F459DB4E2D9358AB00242779 /* EmotionDetectionAppTests */,
+			);
+			name = EmotionDetectionAppTests;
+			packageProductDependencies = (
+			);
+			productName = EmotionDetectionAppTests;
+			productReference = F459DB4B2D9358AB00242779 /* EmotionDetectionAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F459DB542D9358AB00242779 /* EmotionDetectionAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F459DB652D9358AB00242779 /* Build configuration list for PBXNativeTarget "EmotionDetectionAppUITests" */;
+			buildPhases = (
+				F459DB512D9358AB00242779 /* Sources */,
+				F459DB522D9358AB00242779 /* Frameworks */,
+				F459DB532D9358AB00242779 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F459DB572D9358AB00242779 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F459DB582D9358AB00242779 /* EmotionDetectionAppUITests */,
+			);
+			name = EmotionDetectionAppUITests;
+			packageProductDependencies = (
+			);
+			productName = EmotionDetectionAppUITests;
+			productReference = F459DB552D9358AB00242779 /* EmotionDetectionAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F459DB332D9358A900242779 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					F459DB3A2D9358A900242779 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					F459DB4A2D9358AB00242779 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = F459DB3A2D9358A900242779;
+					};
+					F459DB542D9358AB00242779 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = F459DB3A2D9358A900242779;
+					};
+				};
+			};
+			buildConfigurationList = F459DB362D9358A900242779 /* Build configuration list for PBXProject "EmotionDetectionApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F459DB322D9358A900242779;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F459DB3C2D9358AA00242779 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F459DB3A2D9358A900242779 /* EmotionDetectionApp */,
+				F459DB4A2D9358AB00242779 /* EmotionDetectionAppTests */,
+				F459DB542D9358AB00242779 /* EmotionDetectionAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F459DB392D9358A900242779 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F459DB492D9358AB00242779 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F459DB532D9358AB00242779 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F459DB372D9358A900242779 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F459DB472D9358AB00242779 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F459DB512D9358AB00242779 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F459DB4D2D9358AB00242779 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F459DB3A2D9358A900242779 /* EmotionDetectionApp */;
+			targetProxy = F459DB4C2D9358AB00242779 /* PBXContainerItemProxy */;
+		};
+		F459DB572D9358AB00242779 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F459DB3A2D9358A900242779 /* EmotionDetectionApp */;
+			targetProxy = F459DB562D9358AB00242779 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F459DB5D2D9358AB00242779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F459DB5E2D9358AB00242779 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F459DB602D9358AB00242779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EmotionDetectionApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 6FJT7V4P8N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miki.EmotionDetectionApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F459DB612D9358AB00242779 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"EmotionDetectionApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 6FJT7V4P8N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miki.EmotionDetectionApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F459DB632D9358AB00242779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FJT7V4P8N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miki.EmotionDetectionAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmotionDetectionApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EmotionDetectionApp";
+			};
+			name = Debug;
+		};
+		F459DB642D9358AB00242779 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FJT7V4P8N;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miki.EmotionDetectionAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmotionDetectionApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EmotionDetectionApp";
+			};
+			name = Release;
+		};
+		F459DB662D9358AB00242779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FJT7V4P8N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miki.EmotionDetectionAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EmotionDetectionApp;
+			};
+			name = Debug;
+		};
+		F459DB672D9358AB00242779 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6FJT7V4P8N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miki.EmotionDetectionAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EmotionDetectionApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F459DB362D9358A900242779 /* Build configuration list for PBXProject "EmotionDetectionApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F459DB5D2D9358AB00242779 /* Debug */,
+				F459DB5E2D9358AB00242779 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F459DB5F2D9358AB00242779 /* Build configuration list for PBXNativeTarget "EmotionDetectionApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F459DB602D9358AB00242779 /* Debug */,
+				F459DB612D9358AB00242779 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F459DB622D9358AB00242779 /* Build configuration list for PBXNativeTarget "EmotionDetectionAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F459DB632D9358AB00242779 /* Debug */,
+				F459DB642D9358AB00242779 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F459DB652D9358AB00242779 /* Build configuration list for PBXNativeTarget "EmotionDetectionAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F459DB662D9358AB00242779 /* Debug */,
+				F459DB672D9358AB00242779 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F459DB332D9358A900242779 /* Project object */;
+}
