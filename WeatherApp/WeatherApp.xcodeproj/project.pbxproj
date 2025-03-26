@@ -19,6 +19,7 @@
 		F47F14082D92D36300ADA6A1 /* test.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = F47F14072D92D36300ADA6A1 /* test.mbtiles */; };
 		F47F140A2D92D39B00ADA6A1 /* MBTilesOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F14092D92D39B00ADA6A1 /* MBTilesOverlay.swift */; };
 		F47F14122D92EA3600ADA6A1 /* Unnamed atlas.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = F47F14112D92EA3600ADA6A1 /* Unnamed atlas.mbtiles */; };
+		F487AC662D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = F487AC652D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles */; };
 		F49B83C12CB3F2510032595A /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B83C02CB3F2510032595A /* WeatherAppApp.swift */; };
 		F49B83C32CB3F2510032595A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B83C22CB3F2510032595A /* ContentView.swift */; };
 		F49B83C52CB3F2540032595A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49B83C42CB3F2540032595A /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		F47F14072D92D36300ADA6A1 /* test.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mbtiles; sourceTree = "<group>"; };
 		F47F14092D92D39B00ADA6A1 /* MBTilesOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTilesOverlay.swift; sourceTree = "<group>"; };
 		F47F14112D92EA3600ADA6A1 /* Unnamed atlas.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Unnamed atlas.mbtiles"; sourceTree = "<group>"; };
+		F487AC652D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "planet_22.5224,51.1853_22.5971,51.2177.mbtiles"; sourceTree = "<group>"; };
 		F49B83BD2CB3F2510032595A /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49B83C02CB3F2510032595A /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 		F49B83C22CB3F2510032595A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				F47F14072D92D36300ADA6A1 /* test.mbtiles */,
 				F47F14092D92D39B00ADA6A1 /* MBTilesOverlay.swift */,
 				F47F14112D92EA3600ADA6A1 /* Unnamed atlas.mbtiles */,
+				F487AC652D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				F47F14122D92EA3600ADA6A1 /* Unnamed atlas.mbtiles in Resources */,
 				F49B83C82CB3F2540032595A /* Preview Assets.xcassets in Resources */,
 				F47F14082D92D36300ADA6A1 /* test.mbtiles in Resources */,
+				F487AC662D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles in Resources */,
 				F49B83C52CB3F2540032595A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
