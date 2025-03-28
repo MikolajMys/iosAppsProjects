@@ -5,22 +5,69 @@
 //  Created by Mikołaj Myśliński on 25/03/2025.
 //
 
+//import SwiftUI
+//import MapKit
+//
+//struct MapTileOverlay: UIViewRepresentable {
+//    @ObservedObject var viewModel: MapViewModel
+//    let mbTilesPath = Bundle.main.path(forResource: "Unnamed atlas", ofType: "mbtiles")
+//
+//    func makeUIView(context: Context) -> MKMapView {
+//        let mapView = MKMapView()
+//        mapView.mapType = .standard // Domyślnie używa map systemowych
+//        context.coordinator.mapView = mapView
+//        return mapView
+//    }
+//
+//    func updateUIView(_ mapView: MKMapView, context: Context) {
+//        if viewModel.isOffline {
+//            print("OFFLINE!!")
+//            if let mbTilesPath = mbTilesPath, context.coordinator.mbTilesOverlay == nil {
+//                let overlay = MBTilesOverlay(mbtilesPath: mbTilesPath)
+//                if let overlay = overlay {
+//                    context.coordinator.mbTilesOverlay = overlay
+//                    mapView.addOverlay(overlay, level: .aboveLabels)
+//                }
+//            }
+//        } else {
+//            if let mbTilesPath = mbTilesPath, context.coordinator.mbTilesOverlay == nil {
+//                let overlay = MBTilesOverlay(mbtilesPath: mbTilesPath)
+//                if let overlay = overlay {
+//                    context.coordinator.mbTilesOverlay = overlay
+//                    mapView.addOverlay(overlay, level: .aboveLabels)
+//                }
+//            }
+//        }
+//    }
+//
+//    func makeCoordinator() -> Coordinator {
+//        Coordinator()
+//    }
+//
+//    class Coordinator: NSObject, MKMapViewDelegate {
+//        var mapView: MKMapView?
+//        var mbTilesOverlay: MBTilesOverlay?
+//    }
+//}
+
 import SwiftUI
 import MapKit
 
 struct MapTileOverlay: UIViewRepresentable {
+    @EnvironmentObject private var networkMonitor: NetworkMonitor
+    @ObservedObject var viewModel: MapViewModel
     let mapView = MKMapView()
     @State private var userLocation: CLLocationCoordinate2D? = nil
 
     func makeUIView(context: Context) -> MKMapView {
         mapView.delegate = context.coordinator
         
-        // 1. Wyłącz wszystkie domyślne elementy
+        // 1. Disable default elements (optional customization)
         mapView.pointOfInterestFilter = .excludingAll
         mapView.showsBuildings = false
         mapView.showsTraffic = false
         
-        // 2. Styl mapy - najważniejsze dla ukrycia nazw ulic
+        // 2. Style the map to mute street names (if needed)
         if #available(iOS 16.0, *) {
             let config = MKStandardMapConfiguration()
             config.pointOfInterestFilter = .excludingAll
@@ -30,18 +77,14 @@ struct MapTileOverlay: UIViewRepresentable {
             mapView.mapType = .mutedStandard
         }
         
-        // 3. Dodaj swoje kafelki
-        if let filePath = Bundle.main.path(forResource: "planet_22.5224,51.1853_22.5971,51.2177", ofType: "mbtiles"),
-           let overlay = MBTilesOverlay(mbtilesPath: filePath) {
-            overlay.canReplaceMapContent = true
-            mapView.addOverlay(overlay, level: .aboveLabels) // Kluczowe!
-        }
-        
-        // 4. Konfiguracja lokalizacji użytkownika
+        // 3. Configure tiles based on online/offline state
+        updateMapTiles()
+
+        // 4. Configure user location tracking
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
 
-        // 5. Przycisk do dodawania pinów (pozostaje bez zmian)
+        // 5. Add button for adding pins
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 20, y: 20, width: 100, height: 40)
         button.setTitle("Add Pin", for: .normal)
@@ -52,16 +95,50 @@ struct MapTileOverlay: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
+        // If you want to display the user's location on the map
         if let userLocation = userLocation {
             let annotation = MKPointAnnotation()
             annotation.coordinate = userLocation
             annotation.title = "Your Location"
             uiView.addAnnotation(annotation)
         }
+
+        // Handle online/offline map state change
+        updateMapTiles()
     }
 
     func makeCoordinator() -> Coordinator {
         return Coordinator(self)
+    }
+
+    private func updateMapTiles() {
+        if !networkMonitor.isConnected {
+            print("Offline mode")
+            mapView.reloadInputViews()
+            // Add MBTiles overlay for offline use
+            if let filePath = Bundle.main.path(forResource: "Unnamed atlas", ofType: "mbtiles"),
+               let overlay = MBTilesOverlay(mbtilesPath: filePath) {
+                overlay.canReplaceMapContent = true
+                mapView.addOverlay(overlay, level: .aboveLabels)
+            }
+            // Remove system map if previously added
+            mapView.mapType = .mutedStandard
+        } else {
+            print("Online mode")
+            mapView.reloadInputViews()
+            // Remove MBTiles overlay if in online mode
+            mapView.removeOverlays(mapView.overlays.filter { $0 is MKTileOverlay })
+            
+            mapView.reloadInputViews()
+            // Use the system map tiles
+            if #available(iOS 16.0, *) {
+                let standardConfig = MKStandardMapConfiguration()
+                standardConfig.pointOfInterestFilter = .excludingAll
+                mapView.preferredConfiguration = standardConfig
+            } else {
+                mapView.mapType = .standard
+            }
+        }
     }
 
     class Coordinator: NSObject, MKMapViewDelegate {

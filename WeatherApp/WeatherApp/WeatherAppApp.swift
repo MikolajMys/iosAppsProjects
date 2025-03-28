@@ -9,14 +9,24 @@ import SwiftUI
 
 @main
 struct WeatherAppApp: App {
-    
-//    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
-//    @StateObject private var alertManager = AlertManager()
-//    @StateObject private var networkMonitor = NetworkMonitor()
+    @StateObject private var networkMonitor = NetworkMonitor()
+    @StateObject private var viewModel = MapViewModel()
+    @State private var isViewActive = true
     
     var body: some Scene {
         WindowGroup {
-            MapTileOverlay()
+            if isViewActive {
+                MapTileOverlay(viewModel: viewModel)
+                    .environmentObject(networkMonitor)
+                    .onChange(of: networkMonitor.shouldRefreshMapView) {
+                        if !networkMonitor.isConnected {
+                            isViewActive = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                isViewActive = true
+                            }
+                        }
+                    }
+            }
         }
     }
 }
