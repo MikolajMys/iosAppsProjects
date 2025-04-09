@@ -69,7 +69,9 @@ struct CameraView: UIViewRepresentable {
         output.setSampleBufferDelegate(context.coordinator, queue: DispatchQueue(label: "videoQueue"))
         session.addOutput(output)
 
-        session.startRunning()
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.startRunning()
+        }
         return view
     }
 
