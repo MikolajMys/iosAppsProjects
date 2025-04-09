@@ -11,6 +11,8 @@ import Vision
 
 struct CameraView: UIViewRepresentable {
     class CameraCoordinator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+        private var lastClassificationDate = Date(timeIntervalSince1970: 0)
+        private let classificationInterval: TimeInterval = 0.3
         let parent: CameraView
         let classifier: EmotionClassifier
 
@@ -22,10 +24,16 @@ struct CameraView: UIViewRepresentable {
         func captureOutput(_ output: AVCaptureOutput,
                            didOutput sampleBuffer: CMSampleBuffer,
                            from connection: AVCaptureConnection) {
+            let now = Date()
+            guard now.timeIntervalSince(lastClassificationDate) > classificationInterval else {
+                return // Za wcześnie na kolejną klasyfikację
+            }
+
+            lastClassificationDate = now
+
             guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
             let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-            
-            // Call the classifier on a background thread
+
             DispatchQueue.global(qos: .userInitiated).async {
                 self.classifier.classify(image: ciImage)
             }
