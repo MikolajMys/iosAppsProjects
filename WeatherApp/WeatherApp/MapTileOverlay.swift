@@ -116,7 +116,7 @@ struct MapTileOverlay: UIViewRepresentable {
             print("Offline mode")
             mapView.reloadInputViews()
             // Add MBTiles overlay for offline use
-            if let filePath = Bundle.main.path(forResource: "Unnamed atlas", ofType: "mbtiles"),
+            if let filePath = Bundle.main.path(forResource: "offline_map", ofType: "mbtiles"),
                let overlay = MBTilesOverlay(mbtilesPath: filePath) {
                 overlay.canReplaceMapContent = true
                 mapView.addOverlay(overlay, level: .aboveLabels)

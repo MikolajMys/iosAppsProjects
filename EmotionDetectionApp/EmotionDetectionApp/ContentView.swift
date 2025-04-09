@@ -8,40 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var imageLoader = ImageLoader()
     @StateObject private var classifier = EmotionClassifier()
     
     var body: some View {
-        VStack {
-            if let image = imageLoader.currentUIImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 300)
-            } else {
-                Text("Brak obrazu")
-                    .frame(height: 300)
+        ZStack(alignment: .top) {
+            CameraView(classifier: classifier)
+                .ignoresSafeArea()
+
+            if let emotion = classifier.detectedEmotion {
+                Text(emotion.capitalized)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(Color.black.opacity(0.6))
+                    .foregroundColor(.white)
+                    .clipShape(Capsule())
+                    .font(.title3.bold())
+                    .padding(.top, 50)
             }
-            
-            Text("Emocja: \(classifier.detectedEmotion ?? "N/A")")
-                .font(.headline)
-                .padding()
-            
-            HStack {
-                Button("Poprzednie") { imageLoader.previousImage() }
-                Button("Skanuj") {
-                    if let ciImage = imageLoader.currentCIImage {
-                        classifier.classify(image: ciImage)
-                    } else {
-                        classifier.detectedEmotion = "Nie można przeanalizować"
-                    }
-                }
-                Button("Następne") { imageLoader.nextImage() }
-            }
-            .padding()
-        }
-        .onAppear {
-            imageLoader.loadImages()
         }
     }
 }

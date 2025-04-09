@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F44FB3B12D968B8800F23EF1 /* offline_map.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = F44FB3B02D968B8800F23EF1 /* offline_map.mbtiles */; };
 		F4647F272D1F0CF50096BAE2 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4647F262D1F0CF50096BAE2 /* RegisterView.swift */; };
 		F46832792D2873E100B84F68 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46832782D2873E100B84F68 /* AlertManager.swift */; };
 		F473E1E42D29A3ED00A39AED /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F473E1E32D29A3ED00A39AED /* NetworkMonitor.swift */; };
@@ -18,7 +19,6 @@
 		F47F14062D92B71300ADA6A1 /* MapTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F14052D92B71300ADA6A1 /* MapTileOverlay.swift */; };
 		F47F14082D92D36300ADA6A1 /* test.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = F47F14072D92D36300ADA6A1 /* test.mbtiles */; };
 		F47F140A2D92D39B00ADA6A1 /* MBTilesOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F14092D92D39B00ADA6A1 /* MBTilesOverlay.swift */; };
-		F47F14122D92EA3600ADA6A1 /* Unnamed atlas.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = F47F14112D92EA3600ADA6A1 /* Unnamed atlas.mbtiles */; };
 		F487AC662D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = F487AC652D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles */; };
 		F487AC682D9400D7007E0792 /* MKMapView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F487AC672D9400D7007E0792 /* MKMapView-ViewModel.swift */; };
 		F487AC6A2D9400E1007E0792 /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F487AC692D9400E1007E0792 /* MKMapView.swift */; };
@@ -30,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F44FB3B02D968B8800F23EF1 /* offline_map.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline_map.mbtiles; sourceTree = "<group>"; };
 		F4647F262D1F0CF50096BAE2 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F46832782D2873E100B84F68 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		F473E1E32D29A3ED00A39AED /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		F47F14052D92B71300ADA6A1 /* MapTileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTileOverlay.swift; sourceTree = "<group>"; };
 		F47F14072D92D36300ADA6A1 /* test.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mbtiles; sourceTree = "<group>"; };
 		F47F14092D92D39B00ADA6A1 /* MBTilesOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTilesOverlay.swift; sourceTree = "<group>"; };
-		F47F14112D92EA3600ADA6A1 /* Unnamed atlas.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Unnamed atlas.mbtiles"; sourceTree = "<group>"; };
 		F487AC652D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "planet_22.5224,51.1853_22.5971,51.2177.mbtiles"; sourceTree = "<group>"; };
 		F487AC672D9400D7007E0792 /* MKMapView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView-ViewModel.swift"; sourceTree = "<group>"; };
 		F487AC692D9400E1007E0792 /* MKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
@@ -96,6 +96,7 @@
 		F49B83BF2CB3F2510032595A /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F44FB3B02D968B8800F23EF1 /* offline_map.mbtiles */,
 				F49B83D12CB422FA0032595A /* Info.plist */,
 				F47BCA6B2D1C35E300156A2B /* Components */,
 				F49B83C02CB3F2510032595A /* WeatherAppApp.swift */,
@@ -109,7 +110,6 @@
 				F47F14052D92B71300ADA6A1 /* MapTileOverlay.swift */,
 				F47F14072D92D36300ADA6A1 /* test.mbtiles */,
 				F47F14092D92D39B00ADA6A1 /* MBTilesOverlay.swift */,
-				F47F14112D92EA3600ADA6A1 /* Unnamed atlas.mbtiles */,
 				F487AC652D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles */,
 				F487AC672D9400D7007E0792 /* MKMapView-ViewModel.swift */,
 				F487AC692D9400E1007E0792 /* MKMapView.swift */,
@@ -183,11 +183,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F47F14122D92EA3600ADA6A1 /* Unnamed atlas.mbtiles in Resources */,
 				F49B83C82CB3F2540032595A /* Preview Assets.xcassets in Resources */,
 				F47F14082D92D36300ADA6A1 /* test.mbtiles in Resources */,
 				F487AC662D93E69C007E0792 /* planet_22.5224,51.1853_22.5971,51.2177.mbtiles in Resources */,
 				F49B83C52CB3F2540032595A /* Assets.xcassets in Resources */,
+				F44FB3B12D968B8800F23EF1 /* offline_map.mbtiles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

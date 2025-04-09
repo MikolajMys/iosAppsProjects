@@ -10,32 +10,42 @@ import SwiftUI
 
 class PoseDetector: ObservableObject {
     @Published var bodyLandmarks: [VNHumanBodyPoseObservation.JointName: CGPoint] = [:]
-    private var bodyPoseRequest = VNDetectHumanBodyPoseRequest()
-    
-    // Zmieniamy typ kolejki na .userInitiated dla większej responsywności
-    private let visionQueue: DispatchQueue = {
-        #if targetEnvironment(simulator)
-        // Use a lower QoS if running on a simulator, as it will run on the CPU
-        return DispatchQueue(label: "visionQueue", qos: .userInitiated)
-        #else
-        // Use a higher QoS if running on a real device, as it will run on the GPU
-        return DispatchQueue(label: "visionQueue", qos: .userInteractive)
-        #endif
+    private var bodyPoseRequest: VNDetectHumanBodyPoseRequest = {
+        let request = VNDetectHumanBodyPoseRequest()
+        
+        // Domyślnie używa najlepszego dostępnego akceleratora (ANE/GPU)
+        if #available(iOS 15.0, *) {
+            request.revision = VNDetectHumanBodyPoseRequest.currentRevision // Najnowsza optymalizacja
+        }
+        
+        return request
     }()
     
+    // Zmieniamy typ kolejki na .userInitiated dla większej responsywności
+    private let visionQueue = DispatchQueue(
+        label: "com.yourApp.poseDetection",
+        qos: .userInteractive, // Najwyższy priorytet dla ANE
+        autoreleaseFrequency: .workItem
+    )
+    
     func processImage(_ image: CGImage) {
-        let handler = VNImageRequestHandler(cgImage: image, orientation: .up, options: [:])
+        let handler = VNImageRequestHandler(
+            cgImage: image,
+            orientation: .up,
+            options: [:]  // Prawidłowe opcje dla VNImageRequestHandler
+        )
         
         visionQueue.async { [weak self] in
             do {
-                try handler.perform([self?.bodyPoseRequest ?? VNRequest()])
+                try handler.perform([self?.bodyPoseRequest ?? VNDetectHumanBodyPoseRequest()])
+                
                 if let results = self?.bodyPoseRequest.results?.first as? VNHumanBodyPoseObservation {
                     DispatchQueue.main.async { // Aktualizujemy UI na głównej kolejce
                         self?.updateLandmarks(for: results)
                     }
                 }
             } catch {
-                print("Error in body pose detection: \(error)")
+                print("Error in body pose detection: \(error.localizedDescription)")
             }
         }
     }

@@ -17,12 +17,12 @@ struct SkeletonView: View {
         (.leftShoulder, .leftElbow),
         (.rightShoulder, .rightElbow),
         (.leftElbow, .leftWrist),
-        (.rightElbow, .rightWrist)
-//        (.leftHip, .rightHip),
-//        (.leftHip, .leftKnee),
-//        (.rightHip, .rightKnee),
-//        (.leftKnee, .leftAnkle),
-//        (.rightKnee, .rightAnkle)
+        (.rightElbow, .rightWrist),
+        (.leftHip, .rightHip),
+        (.leftHip, .leftKnee),
+        (.rightHip, .rightKnee),
+        (.leftKnee, .leftAnkle),
+        (.rightKnee, .rightAnkle)
     ]
 
     var body: some View {

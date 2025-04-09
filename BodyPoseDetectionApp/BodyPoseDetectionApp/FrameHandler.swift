@@ -91,7 +91,7 @@ extension FrameHandler: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         // Sprawdzamy, czy od ostatniego przetworzenia minęło co najmniej 0,15 sekundy
         let currentTime = Date()
-        guard currentTime.timeIntervalSince(lastProcessedTime) > 0.20,
+        guard currentTime.timeIntervalSince(lastProcessedTime) > 0.15,
               let cgImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
         
         lastProcessedTime = currentTime
