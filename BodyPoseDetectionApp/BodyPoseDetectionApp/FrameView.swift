@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct FrameView: View {
+    @Binding var isDetectionActive: Bool
     var image: CGImage?
     private let label = Text("frame")
     
     var body: some View {
-        if let image = image {
-            Image(image, scale: 1.0, orientation: .up, label: label)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                //.edgesIgnoringSafeArea(.all)
-                .ignoresSafeArea()
+        if isDetectionActive {
+            if let image = image {
+                Image(image, scale: 1.0, orientation: .up, label: label)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+            }
         } else {
-            //Color.black
-            ProgressView()
+            VStack(spacing: 50) {
+                Label("Press button to start detection", systemImage: "hand.tap.fill")
+                    .font(.system(size: 20, weight: .bold))
+                ProgressView()
+                    .scaleEffect(2)
+            }
+            .tint(.primary)
         }
-    }
-}
-
-struct FrameView_Previews: PreviewProvider {
-    static var previews: some View {
-        FrameView()
     }
 }

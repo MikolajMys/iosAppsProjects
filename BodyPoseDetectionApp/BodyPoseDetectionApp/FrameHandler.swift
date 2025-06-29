@@ -23,11 +23,8 @@ class FrameHandler: NSObject, ObservableObject {
         get async {
             let status = AVCaptureDevice.authorizationStatus(for: .video)
 
-            // Determine if the user previously authorized camera access.
             var isAuthorized = status == .authorized
 
-            // If the system hasn't determined the user's authorization status,
-            // explicitly prompt them for approval.
             if status == .notDetermined {
                 isAuthorized = await AVCaptureDevice.requestAccess(for: .video)
             }
@@ -63,7 +60,9 @@ class FrameHandler: NSObject, ObservableObject {
     
     func startDetection() {
         isDetectionRunning = true
-        captureSession.startRunning()
+        sessionQueue.async {
+            self.captureSession.startRunning()
+        }
     }
 
     func stopDetection() {
@@ -73,7 +72,7 @@ class FrameHandler: NSObject, ObservableObject {
     }
 
     func setUpCaptureSession() async {
-        captureSession.sessionPreset = .medium
+        captureSession.sessionPreset = .high
         let videoOutput = AVCaptureVideoDataOutput()
         guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back),
               let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
@@ -83,15 +82,14 @@ class FrameHandler: NSObject, ObservableObject {
         videoOutput.setSampleBufferDelegate(self, queue: visionQueue)
         guard captureSession.canAddOutput(videoOutput) else { return }
         captureSession.addOutput(videoOutput)
-        videoOutput.connection(with: .video)?.videoOrientation = .portrait
+        videoOutput.connection(with: .video)?.videoRotationAngle = 90
     }
 }
 
 extension FrameHandler: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        // Sprawdzamy, czy od ostatniego przetworzenia minęło co najmniej 0,15 sekundy
         let currentTime = Date()
-        guard currentTime.timeIntervalSince(lastProcessedTime) > 0.15,
+        guard currentTime.timeIntervalSince(lastProcessedTime) > 0.01,
               let cgImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
         
         lastProcessedTime = currentTime

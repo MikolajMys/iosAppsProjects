@@ -33,21 +33,21 @@ struct SkeletonView: View {
                     Circle()
                         .fill(Color.red)
                         .frame(width: 8, height: 8)
-                        .position(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
+                        .position(x: point.x * geometry.size.width + 20, y: point.y * geometry.size.height)
                 }
             }
 
             // Draw lines connecting the specified pairs of joints
             ForEach(jointPairs.indices, id: \.self) { index in
                 let pair = jointPairs[index]
-                if let startPoint = landmarks[pair.0], let endPoint = landmarks[pair.1] {
+                if let startPoint = landmarks[pair.1], let endPoint = landmarks[pair.0] {
                     Path { path in
                         path.move(to: CGPoint(
-                            x: startPoint.x * geometry.size.width,
+                            x: startPoint.x * geometry.size.width + 20,
                             y: startPoint.y * geometry.size.height
                         ))
                         path.addLine(to: CGPoint(
-                            x: endPoint.x * geometry.size.width,
+                            x: endPoint.x * geometry.size.width + 20,
                             y: endPoint.y * geometry.size.height
                         ))
                     }

@@ -13,18 +13,19 @@ class PoseDetector: ObservableObject {
     private var bodyPoseRequest: VNDetectHumanBodyPoseRequest = {
         let request = VNDetectHumanBodyPoseRequest()
         
-        // Domyślnie używa najlepszego dostępnego akceleratora (ANE/GPU)
         if #available(iOS 15.0, *) {
-            request.revision = VNDetectHumanBodyPoseRequest.currentRevision // Najnowsza optymalizacja
+            request.revision = VNDetectHumanBodyPoseRequest.currentRevision
         }
+        
+        //request.usesCPUOnly = true //Detection works on CPU
+        request.usesCPUOnly = false //System decides whether it works on GPU or ANE
         
         return request
     }()
     
-    // Zmieniamy typ kolejki na .userInitiated dla większej responsywności
     private let visionQueue = DispatchQueue(
         label: "com.yourApp.poseDetection",
-        qos: .userInteractive, // Najwyższy priorytet dla ANE
+        qos: .userInteractive,
         autoreleaseFrequency: .workItem
     )
     
@@ -32,7 +33,7 @@ class PoseDetector: ObservableObject {
         let handler = VNImageRequestHandler(
             cgImage: image,
             orientation: .up,
-            options: [:]  // Prawidłowe opcje dla VNImageRequestHandler
+            options: [:]
         )
         
         visionQueue.async { [weak self] in
@@ -40,7 +41,7 @@ class PoseDetector: ObservableObject {
                 try handler.perform([self?.bodyPoseRequest ?? VNDetectHumanBodyPoseRequest()])
                 
                 if let results = self?.bodyPoseRequest.results?.first as? VNHumanBodyPoseObservation {
-                    DispatchQueue.main.async { // Aktualizujemy UI na głównej kolejce
+                    DispatchQueue.main.async {
                         self?.updateLandmarks(for: results)
                     }
                 }
