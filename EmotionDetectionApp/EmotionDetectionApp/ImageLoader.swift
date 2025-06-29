@@ -24,12 +24,11 @@ class ImageLoader: ObservableObject {
         "ANGRY",
         "HAPPY",
         "NEUTRAL"
-    ] // Nazwy obrazów z Assets
+    ]
     
     private var currentIndex = 0
     
     func loadImages() {
-        // Załaduj pierwszy obraz z Asset Catalog
         images = images.filter { UIImage(named: $0) != nil }
         
         if let firstImageName = images.first {

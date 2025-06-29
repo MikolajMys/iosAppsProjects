@@ -12,6 +12,7 @@ import CoreImage
 
 class EmotionClassifier: ObservableObject {
     @Published var detectedEmotion: String?
+    @Published var isRunning = false
     
     private var model: VNCoreMLModel?
     private var request: VNCoreMLRequest?
@@ -28,6 +29,11 @@ class EmotionClassifier: ObservableObject {
         } catch {
             assertionFailure("Nie można załadować modelu ML: \(error)")
         }
+    }
+    func start() { isRunning = true }
+    func stop()  {
+        isRunning = false
+        detectedEmotion = nil
     }
     
     func classify(image: CIImage?) {

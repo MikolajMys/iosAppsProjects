@@ -35,16 +35,6 @@
 			path = EmotionDetectionApp;
 			sourceTree = "<group>";
 		};
-		F459DB4E2D9358AB00242779 /* EmotionDetectionAppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = EmotionDetectionAppTests;
-			sourceTree = "<group>";
-		};
-		F459DB582D9358AB00242779 /* EmotionDetectionAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = EmotionDetectionAppUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				F459DB3D2D9358AA00242779 /* EmotionDetectionApp */,
-				F459DB4E2D9358AB00242779 /* EmotionDetectionAppTests */,
-				F459DB582D9358AB00242779 /* EmotionDetectionAppUITests */,
 				F459DB3C2D9358AA00242779 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +118,6 @@
 			dependencies = (
 				F459DB4D2D9358AB00242779 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				F459DB4E2D9358AB00242779 /* EmotionDetectionAppTests */,
-			);
 			name = EmotionDetectionAppTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +137,6 @@
 			);
 			dependencies = (
 				F459DB572D9358AB00242779 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F459DB582D9358AB00242779 /* EmotionDetectionAppUITests */,
 			);
 			name = EmotionDetectionAppUITests;
 			packageProductDependencies = (
@@ -393,6 +375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EmotionDetectionApp/Preview Content\"";
@@ -423,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"EmotionDetectionApp/Preview Content\"";

@@ -10,38 +10,8 @@ import AVFoundation
 import Vision
 
 struct CameraView: UIViewRepresentable {
-    class CameraCoordinator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
-        private var lastClassificationDate = Date(timeIntervalSince1970: 0)
-        private let classificationInterval: TimeInterval = 0.3
-        let parent: CameraView
-        let classifier: EmotionClassifier
-
-        init(parent: CameraView, classifier: EmotionClassifier) {
-            self.parent = parent
-            self.classifier = classifier
-        }
-
-        func captureOutput(_ output: AVCaptureOutput,
-                           didOutput sampleBuffer: CMSampleBuffer,
-                           from connection: AVCaptureConnection) {
-            let now = Date()
-            guard now.timeIntervalSince(lastClassificationDate) > classificationInterval else {
-                return // Za wcześnie na kolejną klasyfikację
-            }
-
-            lastClassificationDate = now
-
-            guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-            let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-
-            DispatchQueue.global(qos: .userInitiated).async {
-                self.classifier.classify(image: ciImage)
-            }
-        }
-    }
-
     @ObservedObject var classifier: EmotionClassifier
-
+    
     func makeCoordinator() -> CameraCoordinator {
         CameraCoordinator(parent: self, classifier: classifier)
     }
@@ -50,7 +20,7 @@ struct CameraView: UIViewRepresentable {
         let view = UIView(frame: .zero)
 
         let session = AVCaptureSession()
-        session.sessionPreset = .medium
+        session.sessionPreset = .high
 
         guard let camera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front),
               let input = try? AVCaptureDeviceInput(device: camera) else {
@@ -61,7 +31,7 @@ struct CameraView: UIViewRepresentable {
 
         let previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.videoGravity = .resizeAspectFill
-        previewLayer.connection?.videoOrientation = .portrait
+        previewLayer.connection?.videoRotationAngle = 90
         previewLayer.frame = UIScreen.main.bounds
         view.layer.addSublayer(previewLayer)
 
@@ -76,4 +46,36 @@ struct CameraView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIView, context: Context) {}
+    
+    class CameraCoordinator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+        private var lastClassificationDate = Date(timeIntervalSince1970: 0)
+        private let classificationInterval: TimeInterval = 0.3
+        let parent: CameraView
+        let classifier: EmotionClassifier
+
+        init(parent: CameraView, classifier: EmotionClassifier) {
+            self.parent = parent
+            self.classifier = classifier
+        }
+
+        func captureOutput(_ output: AVCaptureOutput,
+                           didOutput sampleBuffer: CMSampleBuffer,
+                           from connection: AVCaptureConnection) {
+            guard parent.classifier.isRunning else { return }
+            
+            let now = Date()
+            guard now.timeIntervalSince(lastClassificationDate) > classificationInterval else {
+                return
+            }
+
+            lastClassificationDate = now
+
+            guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+            let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.classifier.classify(image: ciImage)
+            }
+        }
+    }
 }
