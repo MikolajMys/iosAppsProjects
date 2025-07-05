@@ -10,7 +10,7 @@ import CoreML
 
 struct ContentView: View {
     @State private var image: UIImage? = nil
-    @State private var prediction: String = "Narysuj cyfrę"
+    @State private var prediction: String = "Narysuj cyfrę od 0 do 9"
     @State private var shouldClear: Bool = false
 
     private let model: MNISTClassifier?
@@ -41,13 +41,12 @@ struct ContentView: View {
             )
             VStack {
                 Text(prediction)
-                    .font(.title)
+                    .font(.headline)
                     .bold()
                     .padding()
                 
                 DrawingCanvasView(drawnImage: $image, shouldClear: $shouldClear)
                     .frame(width: 280, height: 280)
-                    .border(Color.gray, width: 2)
                     .padding()
                 
                 HStack {
@@ -69,7 +68,9 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .cornerRadius(10)
                 }
+                .padding(.bottom)
             }
+            .background(.gray)
         }
         .ignoresSafeArea()
     }
