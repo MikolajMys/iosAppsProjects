@@ -17,7 +17,14 @@ struct ContentView: View {
 
     init() {
         do {
-            model = try MNISTClassifier(configuration: MLModelConfiguration())
+            let configuration = MLModelConfiguration()
+            //CPU
+            configuration.computeUnits = .cpuOnly
+            //GPU
+            //configuration.computeUnits = .cpuAndGPU
+            //ANE
+            //configuration.computeUnits = .cpuAndNeuralEngine
+            model = try MNISTClassifier(configuration: configuration)
         } catch {
             print("Błąd inicjalizacji modelu: \(error.localizedDescription)")
             model = nil
@@ -92,10 +99,24 @@ struct ContentView: View {
         }
 
         do {
+            let start = CFAbsoluteTimeGetCurrent()
             let result = try model.prediction(image: buffer)
-            let confidence = result.labelProbabilities[result.classLabel] ?? 0
-            prediction = "Rozpoznano: \(result.classLabel) z pewnością \(String(format: "%.0f", confidence*100))%"
+            let end = CFAbsoluteTimeGetCurrent()
+            let elapsed = end - start
+            
+            let predictedLabel = result.classLabel
+            let confidence = result.labelProbabilities[predictedLabel] ?? 0
+            
+            prediction = "Rozpoznano: \(predictedLabel)"
             shouldClear = true
+            
+            print("""
+            ➤ Wynik predykcji:
+            - Label: \(predictedLabel)
+            - Confidence: \(String(format: "%.2f", confidence * 100))%
+            - Czas predykcji: \(String(format: "%.6f", elapsed)) sekund
+            """)
+            
         } catch {
             prediction = "Błąd: \(error.localizedDescription)"
         }

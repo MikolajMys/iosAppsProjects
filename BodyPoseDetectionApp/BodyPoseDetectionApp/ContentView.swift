@@ -20,6 +20,14 @@ struct ContentView: View {
             Color(red: 0.60, green: 1.00, blue: 0.85),
             Color(red: 1.00, green: 0.85, blue: 0.60)
         ]
+//        [
+//            Color(red: 0.859, green: 0.706, blue: 0),
+//            Color(red: 0.937, green: 0.686, blue: 0),
+//            Color(red: 0.961, green: 0.82, blue: 0),
+//            Color(red: 0.961, green: 0.82, blue: 0),
+//            Color(red: 0.82, green: 0.682, blue: 0.082),
+//            Color(red: 0.859, green: 0.706, blue: 0)
+//        ]
         ZStack {
             FrameView(isDetectionActive: $isDetectionActive, image: model.frame)
             

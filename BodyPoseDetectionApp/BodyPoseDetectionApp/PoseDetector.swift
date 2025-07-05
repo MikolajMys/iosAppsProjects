@@ -37,8 +37,13 @@ class PoseDetector: ObservableObject {
         )
         
         visionQueue.async { [weak self] in
+            let start = CFAbsoluteTimeGetCurrent()
             do {
                 try handler.perform([self?.bodyPoseRequest ?? VNDetectHumanBodyPoseRequest()])
+                let end = CFAbsoluteTimeGetCurrent()
+                let elapsed = end - start
+                
+                print("Czas detekcji: \(String(format: "%.3f", elapsed)) sekund")
                 
                 if let results = self?.bodyPoseRequest.results?.first as? VNHumanBodyPoseObservation {
                     DispatchQueue.main.async {
@@ -55,6 +60,12 @@ class PoseDetector: ObservableObject {
         do {
             //clearLandmarks()
             let recognizedPoints = try observation.recognizedPoints(.all)
+            
+            print("Confidence:")//per one body point
+            for (joint, point) in recognizedPoints {
+                print("- \(joint.rawValue): \(String(format: "%.2f", point.confidence))")
+            }
+            
             self.bodyLandmarks = recognizedPoints.mapValues { CGPoint(x: $0.x, y: 1 - $0.y) }
         } catch {
             print("Error in converting points: \(error)")

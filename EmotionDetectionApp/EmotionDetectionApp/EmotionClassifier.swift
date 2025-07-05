@@ -20,6 +20,12 @@ class EmotionClassifier: ObservableObject {
     init() {
         do {
             let configuration = MLModelConfiguration()
+            //CPU
+            //configuration.computeUnits = .cpuOnly
+            //GPU
+            //configuration.computeUnits = .cpuAndGPU
+            //ANE
+            //configuration.computeUnits = .cpuAndNeuralEngine
             let emotionModel = try VNCoreMLModel(for: CNNEmotions(configuration: configuration).model)
             self.model = emotionModel
             
@@ -45,8 +51,13 @@ class EmotionClassifier: ObservableObject {
         }
         
         let handler = VNImageRequestHandler(ciImage: image, options: [:])
+        
+        let start = CFAbsoluteTimeGetCurrent()
         do {
             try handler.perform([request])
+            let end = CFAbsoluteTimeGetCurrent()
+            let elapsed = end - start
+            print("Czas klasyfikacji: \(String(format: "%.3f", elapsed)) sekund")
         } catch {
             print("Błąd analizy obrazu: \(error)")
         }
@@ -60,8 +71,17 @@ class EmotionClassifier: ObservableObject {
             return
         }
         
+        let identifier = topResult.identifier
+        let confidence = topResult.confidence
+
         DispatchQueue.main.async {
-            self.detectedEmotion = topResult.identifier
+            self.detectedEmotion = identifier
         }
+
+        print("""
+        ➤ Wynik klasyfikacji::
+        - Label: \(identifier)
+        - Confidence: \(String(format: "%.2f", confidence * 100))%
+        """)
     }
 }
