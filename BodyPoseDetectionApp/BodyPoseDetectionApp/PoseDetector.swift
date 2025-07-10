@@ -41,9 +41,9 @@ class PoseDetector: ObservableObject {
             do {
                 try handler.perform([self?.bodyPoseRequest ?? VNDetectHumanBodyPoseRequest()])
                 let end = CFAbsoluteTimeGetCurrent()
-                let elapsed = end - start
+                let elapsed = (end - start) * 1000
                 
-                print("Czas detekcji: \(String(format: "%.3f", elapsed)) sekund")
+                print("Czas detekcji: \(String(format: "%.6f", elapsed)) ms")
                 
                 if let results = self?.bodyPoseRequest.results?.first as? VNHumanBodyPoseObservation {
                     DispatchQueue.main.async {
@@ -61,9 +61,18 @@ class PoseDetector: ObservableObject {
             //clearLandmarks()
             let recognizedPoints = try observation.recognizedPoints(.all)
             
-            print("Confidence:")//per one body point
+            var totalConfidence: Float = 0
+            var count: Int = 0
+
             for (joint, point) in recognizedPoints {
-                print("- \(joint.rawValue): \(String(format: "%.2f", point.confidence))")
+                //print("- \(joint.rawValue): \(String(format: "%.2f", point.confidence))") // per one body point
+                totalConfidence += point.confidence
+                count += 1
+            }
+
+            if count > 0 {
+                let avgConfidence = totalConfidence / Float(count)
+                print("Avg confidence: \(String(format: "%.2f", avgConfidence * 100))%")
             }
             
             self.bodyLandmarks = recognizedPoints.mapValues { CGPoint(x: $0.x, y: 1 - $0.y) }

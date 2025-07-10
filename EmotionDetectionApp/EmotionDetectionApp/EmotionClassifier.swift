@@ -56,8 +56,8 @@ class EmotionClassifier: ObservableObject {
         do {
             try handler.perform([request])
             let end = CFAbsoluteTimeGetCurrent()
-            let elapsed = end - start
-            print("Czas klasyfikacji: \(String(format: "%.3f", elapsed)) sekund")
+            let elapsed = (end - start) * 1000
+            print("Czas klasyfikacji: \(String(format: "%.6f", elapsed)) ms")
         } catch {
             print("Błąd analizy obrazu: \(error)")
         }
@@ -78,10 +78,6 @@ class EmotionClassifier: ObservableObject {
             self.detectedEmotion = identifier
         }
 
-        print("""
-        ➤ Wynik klasyfikacji::
-        - Label: \(identifier)
-        - Confidence: \(String(format: "%.2f", confidence * 100))%
-        """)
+        print("Confidence: \(String(format: "%.2f", confidence * 100))%")
     }
 }

@@ -22,6 +22,9 @@ struct ContentView: View {
         ZStack(alignment: .top) {
             CameraView(classifier: classifier)
                 .ignoresSafeArea()
+                .onChange(of: classifier.isRunning) { _ in
+                    // To wywoła updateUIView i zatrzyma/wznowi kamerę.
+                }
 
 
             Text(classifier.detectedEmotion ?? "Press button to sart detection" .capitalized)
